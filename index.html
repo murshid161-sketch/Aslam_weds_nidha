@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aslam & Nidha | Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter+Tight:wght@300;400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+<template id="__bundler_thumbnail" data-bg-color="#3d0a0a">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#3d0a0a"/>
+    <rect x="60" y="60" width="1080" height="680" fill="none" stroke="#b08d5b" stroke-width="2"/>
+    <text x="600" y="380" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="160" fill="#f3dfa1">A &amp; N</text>
+    <line x1="500" y1="440" x2="700" y2="440" stroke="#b08d5b" stroke-width="2"/>
+    <text x="600" y="500" text-anchor="middle" font-family="Georgia,serif" font-size="28" fill="#f5efe3" letter-spacing="8">ASLAM &amp; NIDHA</text>
+    <text x="600" y="560" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="22" fill="#b08d5b">July 2026 · Eramangalam</text>
+  </svg>
+</template>
+<style>
+:root{
+  --ink:#3d0a0a; --ink-2:#4f1010;
+  --ivory:#f5efe3;
+  --gold:#b08d5b; --gold-2:#d4b57a; --gold-hi:#f3dfa1;
+  --gold-dim:rgba(176,141,91,.35);
+  --line:rgba(176,141,91,.22);
+  --serif:'Fraunces',serif;
+  --italic:'Cormorant Garamond',serif;
+  --micro:'Inter Tight',sans-serif;
+  --arabic:'Amiri',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+html,body{background:var(--ink);color:var(--ivory);font-family:var(--serif);scroll-behavior:smooth;}
+body{overflow-x:hidden;}
+::selection{background:var(--gold);color:var(--ink);}
+
+.page{position:relative;min-height:100vh;
+  background:
+    radial-gradient(1200px 800px at 80% -10%,rgba(176,141,91,.08),transparent 60%),
+    radial-gradient(900px 700px at -20% 40%,rgba(176,141,91,.05),transparent 60%),
+    linear-gradient(180deg,#2a0606 0%,#3d0a0a 40%,#3d0a0a 100%);
+  overflow:hidden;}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/></svg>");}
+#dust{position:fixed;inset:0;pointer-events:none;z-index:2;opacity:1;}
+
+/* ── ENVELOPE ── */
+#envelope{position:fixed;inset:0;z-index:200;background:radial-gradient(800px 600px at 50% 50%,#3d0a0a 0%,#2a0606 70%);display:flex;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s;}
+#envelope.gone{opacity:0;visibility:hidden;pointer-events:none;}
+.env-wrap{width:min(320px,80vw);aspect-ratio:1.45/1;position:relative;perspective:1200px;cursor:pointer;}
+.env-body{position:absolute;inset:0;background:linear-gradient(180deg,#4a0e0e,#350909);border:1px solid var(--gold-dim);box-shadow:0 30px 80px rgba(0,0,0,.8),inset 0 0 0 1px rgba(176,141,91,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;overflow:hidden;}
+.env-body::before{content:"";position:absolute;inset:8px;border:1px solid var(--gold-dim);pointer-events:none;}
+.env-flap{position:absolute;left:0;right:0;top:0;height:56%;background:linear-gradient(180deg,#4f1212,#3a0a0a);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1.4s cubic-bezier(.6,0,.2,1);border-bottom:1px solid var(--gold-dim);z-index:3;}
+.env-wrap.open .env-flap{transform:rotateX(-180deg);}
+.env-seal{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f3dfa1,#b08d5b 55%,#6a4f1e);box-shadow:0 6px 20px rgba(176,141,91,.35),inset 0 -4px 8px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;color:#2a1f08;font-size:1.3rem;z-index:4;transition:transform 1.2s,opacity .6s;}
+.env-wrap.open .env-seal{transform:translate(-50%,-120%) scale(.6);opacity:0;}
+.env-monogram{font-family:var(--serif);font-style:italic;font-size:2.8rem;color:var(--gold-hi);line-height:1;}
+.env-rule{width:80px;height:1px;background:var(--gold);opacity:.8;}
+.env-names{font-family:var(--micro);font-size:.62rem;letter-spacing:.35em;color:var(--ivory);opacity:.85;}
+.env-date{font-family:var(--italic);font-style:italic;font-size:.95rem;color:var(--gold-2);}
+.env-cta{position:absolute;bottom:-2.4rem;left:50%;transform:translateX(-50%);font-family:var(--micro);font-size:.58rem;letter-spacing:.4em;color:var(--gold);opacity:.75;white-space:nowrap;}
+.env-cta::before,.env-cta::after{content:"";display:inline-block;width:20px;height:1px;background:var(--gold);vertical-align:middle;margin:0 .6rem;opacity:.6;}
+
+/* ── TOP BAR ── */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,rgba(5,4,3,.85),transparent);backdrop-filter:blur(6px);pointer-events:none;}
+.topbar .mono{font-family:var(--serif);font-style:italic;color:var(--gold-hi);font-size:1.05rem;}
+.topbar .tag{font-family:var(--micro);font-size:.52rem;letter-spacing:.3em;color:var(--ivory);opacity:.55;}
+
+/* ── HERO ── */
+#hero{min-height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6rem 1.5rem 5rem;text-align:center;z-index:3;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 30%,#5a1414 0%,#3d0a0a 55%,#2a0606 100%);}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,4,3,.3) 0%,rgba(5,4,3,.15) 30%,rgba(5,4,3,.35) 70%,rgba(10,9,6,.75) 100%);}
+@keyframes kenburns{from{transform:scale(1) translate(0,0);}to{transform:scale(1.12) translate(-2%,-2%);}}
+#hero > *:not(.hero-bg){position:relative;z-index:2;}
+.hero-frame{position:absolute;inset:3.5rem 1.2rem;border:1px solid var(--gold-dim);pointer-events:none;mask:linear-gradient(180deg,#000 0,#000 calc(100% - 10rem),transparent 100%);z-index:1!important;}
+.hero-frame::before,.hero-frame::after{content:"";position:absolute;width:22px;height:22px;border:1px solid var(--gold);}
+.hero-frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+.hero-frame::after{top:-1px;right:-1px;border-left:none;border-bottom:none;}
+.hero-corner-bl,.hero-corner-br{position:absolute;width:22px;height:22px;border:1px solid var(--gold);}
+.hero-corner-bl{bottom:-1px;left:-1px;border-right:none;border-top:none;}
+.hero-corner-br{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+.hero-arabic{font-family:var(--arabic);color:var(--gold-hi);font-size:1.6rem;line-height:1;margin-bottom:.75rem;opacity:0;animation:riseIn 1.6s .3s forwards cubic-bezier(.2,.7,.2,1);}
+.hero-arabic-en{font-family:var(--italic);font-style:italic;color:var(--ivory);opacity:.55;font-size:.82rem;letter-spacing:.04em;margin-bottom:2.2rem;animation:riseIn 1.4s .6s both cubic-bezier(.2,.7,.2,1);}
+.hero-gline{width:180px;height:1px;background:var(--gold);opacity:.8;margin:0 auto 1.4rem;animation:lineIn 1.2s .9s both;}
+@keyframes lineIn{from{width:0;opacity:0;}to{width:180px;opacity:.8;}}
+.hero-name{font-family:var(--serif);font-weight:300;font-style:italic;color:var(--ivory);font-size:4.4rem;line-height:.95;letter-spacing:-.02em;font-variation-settings:"opsz" 144;}
+.hero-name .shine{background:linear-gradient(100deg,#f5efe3 0%,#fff7d6 40%,#b08d5b 50%,#fff7d6 60%,#f5efe3 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s ease-in-out infinite;}
+.hero-amp{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:2.6rem;font-weight:300;display:block;margin:-.2rem 0;}
+.hero-stars{color:var(--gold);font-size:1.1rem;letter-spacing:.4rem;margin:1.5rem 0 1rem;animation:riseIn 1.4s 1.5s both;}
+.hero-date{font-family:var(--micro);color:rgba(245,239,227,.85);font-size:.72rem;letter-spacing:.25em;margin-bottom:.3rem;animation:riseIn 1.4s 1.7s both;}
+.hero-place{margin-top:.8rem;font-family:var(--italic);font-style:italic;color:var(--gold-2);font-size:.95rem;letter-spacing:.08em;animation:riseIn 1.4s 2s both;}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);font-family:var(--micro);font-size:.55rem;letter-spacing:.35em;color:var(--gold);opacity:.7;display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+.scroll-hint .line{width:1px;height:40px;background:linear-gradient(180deg,var(--gold),transparent);animation:drop 2.4s ease-in-out infinite;transform-origin:top;}
+@keyframes shine{0%,100%{background-position:120% 0;}50%{background-position:-120% 0;}}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes drop{0%{transform:scaleY(0);opacity:0;}30%{opacity:1;}100%{transform:scaleY(1);opacity:0;}}
+
+/* ── SECTIONS ── */
+section{position:relative;z-index:3;padding:5rem 1.5rem;}
+.eyebrow{font-family:var(--micro);font-size:.58rem;letter-spacing:.4em;color:var(--gold);text-align:center;display:flex;align-items:center;justify-content:center;gap:.8rem;margin-bottom:1rem;}
+.eyebrow::before,.eyebrow::after{content:"";width:30px;height:1px;background:var(--gold);opacity:.6;}
+.section-title{font-family:var(--serif);font-style:italic;font-weight:300;font-size:2.6rem;color:var(--ivory);text-align:center;line-height:1.05;margin-bottom:2.5rem;font-variation-settings:"opsz" 144;}
+.section-title em{color:var(--gold-hi);font-style:italic;}
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+.rv-d1{transition-delay:.1s;} .rv-d2{transition-delay:.2s;} .rv-d3{transition-delay:.3s;}
+
+/* ── PHOTO & GALLERY ── */
+#photo .photo-wrap{position:relative;margin:0 auto;width:min(300px,75%);aspect-ratio:3/4;}
+.photo-frame{position:absolute;inset:0;border:1px solid var(--gold);transform:translate(10px,10px);}
+.photo-img{position:relative;width:100%;height:100%;overflow:hidden;background:#3a0a0a;}
+.photo-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,9,6,.5));pointer-events:none;}
+.diamond-sep{text-align:center;margin:2rem 0;color:var(--gold);letter-spacing:.6em;font-size:.8rem;opacity:.7;}
+
+.gallery{overflow:hidden;margin:0 -1.5rem;}
+.gtrack{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 1.5rem 1rem;scrollbar-width:none;}
+.gtrack::-webkit-scrollbar{display:none;}
+.gitem{flex:0 0 80%;aspect-ratio:3/4;scroll-snap-align:center;border:1px solid var(--line);position:relative;overflow:hidden;background:#3a0a0a;}
+.gitem img{width:100%;height:100%;object-fit:cover;display:block;}
+.gitem::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(10,9,6,.5));pointer-events:none;}
+
+/* ── EVENTS ── */
+.event{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,255,255,0));border:1px solid var(--line);margin-bottom:1.25rem;overflow:hidden;}
+.event::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform 1.2s ease;}
+.event.in::before{transform:scaleX(1);}
+.event-inner{padding:1.75rem 1.4rem;}
+.event-num{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1rem;}
+.event-num .n{font-family:var(--serif);font-size:2.2rem;color:var(--gold-hi);font-weight:300;line-height:1;font-variation-settings:"opsz" 144;}
+.event-num .lbl{font-family:var(--micro);font-size:.55rem;letter-spacing:.4em;color:var(--gold);}
+.event-title{font-family:var(--serif);font-style:italic;font-weight:300;font-size:2.2rem;color:var(--ivory);line-height:1;margin-bottom:1.2rem;}
+.event-row{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem;align-items:baseline;padding:.7rem 0;border-top:1px solid var(--line);}
+.event-row .k{font-family:var(--micro);font-size:.55rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;}
+.event-row .v{font-family:var(--italic);font-style:italic;color:var(--ivory);opacity:.85;font-size:1rem;line-height:1.4;}
+.event-row .v strong{font-style:normal;font-family:var(--serif);font-weight:400;color:var(--gold-hi);}
+.event-btns{display:flex;gap:.5rem;margin-top:1.2rem;flex-wrap:wrap;}
+.btn{position:relative;flex:1;min-width:0;padding:.85rem .5rem;background:transparent;color:var(--ivory);font-family:var(--micro);font-size:.55rem;letter-spacing:.3em;cursor:pointer;border:1px solid var(--gold-dim);overflow:hidden;text-decoration:none;text-align:center;transition:color .3s;}
+.btn::after{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(100%);transition:transform .4s;z-index:-1;}
+.btn:hover{color:var(--ink);}
+.btn:hover::after{transform:translateY(0);}
+.btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.btn.primary::after{background:var(--gold-hi);}
+.event.featured{border-color:var(--gold);background:linear-gradient(180deg,rgba(176,141,91,.05),transparent);}
+.event.featured .ribbon{padding:.45rem;background:var(--gold);color:var(--ink);font-family:var(--micro);font-size:.55rem;letter-spacing:.4em;text-align:center;}
+
+/* ── VENUE ── */
+.venue{padding:2rem 1.5rem;border:1px solid var(--line);margin-bottom:1rem;text-align:center;position:relative;}
+.venue .icn{width:44px;height:44px;margin:0 auto 1rem;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;}
+.venue h4{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.5rem;color:var(--ivory);margin-bottom:.4rem;}
+.venue p{font-family:var(--italic);font-style:italic;color:var(--ivory);opacity:.65;font-size:.95rem;line-height:1.6;margin-bottom:1rem;}
+
+/* ── FAMILIES ── */
+.fam{padding:2rem 1.5rem;border:1px solid var(--line);text-align:center;position:relative;margin-bottom:1rem;}
+.fam-side{font-family:var(--micro);font-size:.55rem;letter-spacing:.4em;color:var(--gold);margin-bottom:.7rem;}
+.fam-name{font-family:var(--serif);font-style:italic;font-weight:300;font-size:2.4rem;color:var(--ivory);line-height:1;margin-bottom:1rem;}
+.fam-rel{font-family:var(--italic);font-style:italic;color:var(--ivory);opacity:.45;font-size:.88rem;margin-bottom:.3rem;}
+.fam-parent{font-family:var(--serif);font-size:1.05rem;color:var(--gold-hi);line-height:1.5;font-weight:400;}
+.fam-gp{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid var(--line);}
+.fam-gp-title{font-family:var(--micro);font-size:.55rem;letter-spacing:.3em;color:var(--gold);opacity:.8;margin-bottom:.5rem;}
+.fam-gp-name{font-family:var(--italic);font-style:italic;color:var(--ivory);opacity:.65;font-size:.95rem;line-height:1.7;}
+.fam-sep{text-align:center;margin:.5rem auto 1.5rem;color:var(--gold);opacity:.5;letter-spacing:.8em;font-size:.7rem;}
+
+/* ── RSVP ── */
+#rsvp-sec{background:linear-gradient(180deg,rgba(176,141,91,.06),transparent 60%);}
+.rsvp-card{padding:2.25rem 1.5rem;border:1px solid var(--gold);background:rgba(20,16,9,.6);backdrop-filter:blur(4px);}
+.rsvp-card h3{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.8rem;color:var(--ivory);text-align:center;margin-bottom:.3rem;}
+.rsvp-card .rsvp-sub{text-align:center;font-family:var(--italic);font-style:italic;color:var(--ivory);opacity:.6;font-size:.95rem;margin-bottom:1.5rem;}
+.rsvp-card input,.rsvp-card textarea{width:100%;padding:.9rem 1rem;background:transparent;border:1px solid var(--line);font-family:var(--italic);font-style:italic;color:var(--ivory);font-size:1rem;margin-bottom:.75rem;transition:border-color .3s;}
+.rsvp-card input:focus,.rsvp-card textarea:focus{outline:none;border-color:var(--gold);}
+.rsvp-card textarea{resize:none;min-height:80px;}
+.yn{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.75rem;}
+.yn-btn{padding:1rem;border:1px solid var(--line);background:transparent;color:var(--ivory);font-family:var(--micro);font-size:.6rem;letter-spacing:.3em;cursor:pointer;transition:all .3s;}
+.yn-btn.active{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.rsvp-submit{width:100%;padding:1.1rem;background:var(--gold);color:var(--ink);font-family:var(--micro);font-size:.65rem;letter-spacing:.4em;border:none;cursor:pointer;transition:background .3s;}
+.rsvp-submit:hover{background:var(--gold-hi);}
+.rsvp-ok{display:none;text-align:center;padding:2rem;color:var(--gold-hi);font-family:var(--italic);font-style:italic;font-size:1.1rem;line-height:1.6;}
+
+/* ── WISHES ── */
+.wish-count{text-align:center;font-family:var(--micro);font-size:.6rem;letter-spacing:.3em;color:var(--gold);opacity:.7;margin-bottom:1.5rem;}
+.wish{padding:1.25rem;border-left:1px solid var(--gold);margin-bottom:.8rem;background:rgba(255,255,255,.01);}
+.wish .wn{font-family:var(--serif);font-style:italic;color:var(--gold-hi);font-size:1.1rem;margin-bottom:.3rem;}
+.wish .wm{font-family:var(--italic);font-style:italic;color:var(--ivory);opacity:.75;font-size:.98rem;line-height:1.55;}
+.wish .wd{font-family:var(--micro);font-size:.55rem;letter-spacing:.2em;color:var(--ivory);opacity:.4;margin-top:.6rem;}
+
+/* ── CONTACT ── */
+.contact{padding:1.5rem;border:1px solid var(--line);margin-bottom:.8rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.contact-left .lbl{font-family:var(--micro);font-size:.55rem;letter-spacing:.3em;color:var(--gold);margin-bottom:.4rem;}
+.contact-left .nm{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--ivory);font-weight:300;}
+.contact-right{display:flex;gap:.4rem;}
+.c-ic{width:40px;height:40px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold);cursor:pointer;transition:all .3s;text-decoration:none;}
+.c-ic:hover{background:var(--gold);color:var(--ink);}
+
+/* ── FOOTER ── */
+footer{padding:5rem 1.5rem 3rem;text-align:center;position:relative;z-index:3;}
+.foot-rule{width:60%;max-width:240px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 2rem;}
+.foot-dua{font-family:var(--arabic);color:var(--gold-hi);font-size:1.8rem;line-height:1.6;margin-bottom:.5rem;}
+.foot-families{font-family:var(--italic);font-style:italic;color:var(--ivory);opacity:.6;font-size:.95rem;line-height:1.6;margin-bottom:2rem;}
+.foot-names{font-family:var(--serif);font-style:italic;font-size:2.2rem;color:var(--gold-hi);margin-bottom:.5rem;}
+.foot-date{font-family:var(--micro);font-size:.55rem;letter-spacing:.3em;color:var(--ivory);opacity:.5;line-height:1.8;}
+.foot-credit{margin-top:3rem;font-family:var(--micro);font-size:.5rem;letter-spacing:.3em;color:var(--ivory);opacity:.3;}
+.foot-credit a{color:var(--gold);text-decoration:none;}
+
+/* ── WA FAB ── */
+.wa-fab{position:fixed;right:1rem;bottom:1rem;z-index:40;width:48px;height:48px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.4);text-decoration:none;font-family:var(--serif);font-size:1.2rem;font-weight:600;}
+
+/* ── TWEAKS ── */
+#tweaks{position:fixed;right:1rem;top:4.5rem;z-index:500;width:240px;background:rgba(10,9,6,.92);border:1px solid var(--gold);backdrop-filter:blur(10px);padding:1rem;font-family:var(--micro);display:none;}
+#tweaks.on{display:block;}
+#tweaks h5{font-size:.6rem;letter-spacing:.3em;color:var(--gold);margin-bottom:.8rem;}
+#tweaks .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;font-size:.7rem;color:var(--ivory);}
+#tweaks button{background:transparent;color:var(--ivory);border:1px solid var(--line);padding:.3rem .6rem;font-size:.55rem;letter-spacing:.2em;font-family:var(--micro);cursor:pointer;}
+#tweaks button.on{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+#tweaks .theme-row{display:flex;gap:.3rem;}
+.sw{width:26px;height:26px;border:1px solid var(--line);cursor:pointer;}
+.sw.active{border-color:var(--gold-hi);box-shadow:0 0 0 2px var(--ink),0 0 0 3px var(--gold);}
+
+/* ── COUNTDOWN ── */
+.hero-countdown{display:flex;gap:1vw;justify-content:center;align-items:flex-end;margin:1.5rem 0 .5rem;flex-wrap:nowrap;width:100%;}
+.cd-unit{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:1;}
+.cd-num{font-family:var(--serif);font-style:italic;font-weight:300;font-size:min(3rem,10.5vw);color:var(--gold-hi);line-height:1;font-variation-settings:"opsz" 144;text-align:center;}
+.cd-lbl{font-family:var(--micro);font-size:min(.44rem,1.8vw);letter-spacing:.3em;color:var(--gold);opacity:.75;}
+.cd-sep{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:min(1.4rem,4.5vw);opacity:.4;padding-bottom:.35rem;flex:0;}
+.cd-tagline{font-family:var(--micro);font-size:.48rem;letter-spacing:.38em;color:var(--gold);opacity:.65;text-align:center;margin-bottom:.5rem;}
+.cd-done{font-family:var(--italic);font-style:italic;color:var(--gold-hi);font-size:1rem;letter-spacing:.06em;text-align:center;margin:1.5rem 0 .5rem;}
+
+@media (min-width:720px){
+  section{padding:7rem 3rem;max-width:640px;margin:0 auto;}
+  .hero-name{font-size:6rem;}
+  .section-title{font-size:3.4rem;}
+  footer{padding:6rem 3rem 3rem;}
+}
+
+/* ── BOARDING PASS ── */
+.bp2{border:1px solid var(--gold);overflow:visible;}
+.bp2-head{background:var(--gold);padding:.65rem 1.2rem;display:flex;justify-content:space-between;align-items:center;}
+.bp2-head .bl{font-family:var(--micro);font-size:.55rem;letter-spacing:.55em;color:var(--ink);}
+.bp2-head .br{font-family:var(--micro);font-size:.48rem;letter-spacing:.28em;color:var(--ink);opacity:.8;display:flex;align-items:center;gap:.3rem;}
+.bp2-body{padding:1.2rem 1.2rem .9rem;}
+.bp2-pax{margin-bottom:.9rem;}
+.bp2-pax .k{font-family:var(--micro);font-size:.44rem;letter-spacing:.4em;color:var(--gold);opacity:.75;margin-bottom:.18rem;}
+.bp2-pax .v{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--ivory);font-variation-settings:"opsz" 144;}
+.bp2-route{display:flex;align-items:center;padding:.9rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:.9rem;}
+.bp2-apt{flex:1;text-align:center;}
+.bp2-iata{font-family:var(--micro);font-size:2.5rem;color:var(--ivory);line-height:1;letter-spacing:.04em;font-weight:300;}
+.bp2-apt-name{font-family:var(--italic);font-style:italic;font-size:.72rem;color:var(--gold-2);margin-top:.22rem;opacity:.9;}
+.bp2-path{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 .5rem;}
+.bp2-path-line{width:42px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.bp2-path-ic{color:var(--gold);font-size:.9rem;line-height:1;}
+.bp2-info{display:grid;grid-template-columns:1fr 1fr;gap:.75rem .5rem;}
+.bp2-f .k{font-family:var(--micro);font-size:.43rem;letter-spacing:.33em;color:var(--gold);opacity:.75;margin-bottom:.18rem;}
+.bp2-f .v{font-family:var(--serif);font-style:italic;font-size:.88rem;color:var(--ivory);line-height:1.2;font-variation-settings:"opsz" 144;}
+.bp2-tear{display:flex;align-items:center;margin:0 -1px;}
+.bp2-notch{width:15px;height:15px;flex-shrink:0;border-radius:50%;background:#3d0a0a;border:1px solid var(--gold);}
+.bp2-dash{flex:1;border-top:1.5px dashed rgba(176,141,91,.38);}
+.bp2-tear-ic{font-family:var(--micro);font-size:.6rem;color:var(--gold);padding:0 .5rem;opacity:.75;}
+.bp2-stub{padding:.9rem 1.2rem .85rem;}
+.bp2-stub-info{display:grid;grid-template-columns:1fr 1fr;gap:.75rem .5rem;margin-bottom:.9rem;}
+.bp2-bcode{height:34px;background:
+  repeating-linear-gradient(90deg,
+    rgba(176,141,91,.55) 0,rgba(176,141,91,.55) 2px,transparent 2px,transparent 5px,
+    rgba(176,141,91,.38) 5px,rgba(176,141,91,.38) 6px,transparent 6px,transparent 10px,
+    rgba(176,141,91,.55) 10px,rgba(176,141,91,.55) 13px,transparent 13px,transparent 15px,
+    rgba(176,141,91,.3)  15px,rgba(176,141,91,.3)  16px,transparent 16px,transparent 20px,
+    rgba(176,141,91,.55) 20px,rgba(176,141,91,.55) 22px,transparent 22px,transparent 24px,
+    rgba(176,141,91,.42) 24px,rgba(176,141,91,.42) 25px,transparent 25px,transparent 29px
+  );opacity:.35;}
+.bp2-btns{padding:0 1.2rem 1.2rem;display:flex;gap:.5rem;flex-wrap:wrap;}
+
+/* ── MOVING FLIGHTS ── */
+.sky-layer{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.flt{position:absolute;display:flex;align-items:center;}
+.flt-trail{height:1px;flex-shrink:0;background:linear-gradient(to right,transparent,rgba(176,141,91,.3));}
+.flt-trail::after{content:"";display:block;height:3px;margin-top:0;background:inherit;filter:blur(2px);opacity:.5;}
+.flt-plane{line-height:1;filter:drop-shadow(0 0 6px rgba(176,141,91,.5));}
+
+.flt-a{top:14%;animation:fltA 22s linear infinite;}
+.flt-a .flt-plane{font-size:1rem;color:rgba(176,141,91,.55);}
+.flt-a .flt-trail{width:110px;}
+
+.flt-b{top:7%;animation:fltB 32s linear infinite 10s;}
+.flt-b .flt-plane{font-size:.62rem;color:rgba(176,141,91,.3);}
+.flt-b .flt-trail{width:70px;background:linear-gradient(to right,transparent,rgba(176,141,91,.18));}
+
+.flt-c{top:52%;animation:fltC 40s linear infinite 5s;}
+.flt-c .flt-plane{font-size:.48rem;color:rgba(176,141,91,.2);}
+.flt-c .flt-trail{width:50px;background:linear-gradient(to right,transparent,rgba(176,141,91,.12));}
+
+@keyframes fltA{
+  0%  {transform:translateX(-200px) translateY(5px);}
+  40% {transform:translateX(40vw)   translateY(-8px);}
+  100%{transform:translateX(calc(100vw + 200px)) translateY(3px);}
+}
+@keyframes fltB{
+  0%  {transform:translateX(-160px) translateY(-4px);}
+  55% {transform:translateX(55vw)   translateY(6px);}
+  100%{transform:translateX(calc(100vw + 160px)) translateY(-2px);}
+}
+@keyframes fltC{
+  0%  {transform:translateX(-130px) translateY(3px);}
+  45% {transform:translateX(45vw)   translateY(-5px);}
+  100%{transform:translateX(calc(100vw + 130px)) translateY(2px);}
+}
+
+
+.ph-slot{position:absolute;inset:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+  background:
+    repeating-linear-gradient(45deg,rgba(176,141,91,.04) 0 14px,transparent 14px 28px),
+    radial-gradient(ellipse at 50% 40%,rgba(176,141,91,.10),transparent 70%),
+    linear-gradient(180deg,#4a0e0e,#2a0606);
+  border:1px dashed rgba(176,141,91,.35);}
+.ph-slot::before{content:"";position:absolute;inset:10px;border:1px solid rgba(176,141,91,.22);pointer-events:none;}
+.ph-mark{font-family:var(--serif);font-style:italic;color:var(--gold-hi);font-size:2.4rem;line-height:1;opacity:.85;}
+.ph-label{font-family:var(--micro);font-size:.5rem;letter-spacing:.4em;color:var(--gold);opacity:.7;}
+
+/* ── ADMIN INLINE ── */
+#adminBtn{font-family:var(--micro);font-size:.42rem;letter-spacing:.35em;color:var(--gold);opacity:.2;cursor:pointer;padding:.4rem .6rem;user-select:none;transition:opacity .3s;display:inline-block;margin-top:.6rem;}
+#adminBtn.holding{opacity:.6;}
+body.admin-mode #adminBtn{opacity:.8;color:var(--gold);}
+
+/* Admin edit badge on image slots */
+.img-edit-btn{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;background:rgba(20,4,4,.72);cursor:pointer;z-index:10;transition:opacity .2s;}
+.img-edit-btn input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0;}
+.img-edit-btn .edit-ic{font-size:2rem;color:var(--gold);line-height:1;}
+.img-edit-btn .edit-lbl{font-family:var(--micro);font-size:.42rem;letter-spacing:.3em;color:var(--gold);}
+body.admin-mode .img-edit-btn{display:flex;}
+
+/* Admin PIN toast */
+#admPinToast{display:none;position:fixed;bottom:5rem;left:50%;transform:translateX(-50%);z-index:9999;background:var(--ink-2);border:1px solid var(--gold);padding:.9rem 1.6rem;flex-direction:column;align-items:center;gap:.7rem;min-width:200px;}
+#admPinToast.on{display:flex;}
+#admPinToast .adm-pin-lbl{font-family:var(--micro);font-size:.48rem;letter-spacing:.4em;color:var(--gold);}
+#admPinToast input[type=password]{background:transparent;border:none;border-bottom:1px solid var(--gold);color:var(--ivory);font-family:var(--micro);font-size:1.1rem;letter-spacing:.4em;text-align:center;width:140px;padding:.4rem;outline:none;}
+#admPinToast .adm-err{font-family:var(--micro);font-size:.42rem;letter-spacing:.28em;color:#e87;opacity:0;transition:opacity .3s;height:.7rem;}
+#admPinToast .adm-err.show{opacity:1;}
+#admPinToast .adm-cancel{font-family:var(--micro);font-size:.4rem;letter-spacing:.28em;color:var(--gold);opacity:.5;cursor:pointer;padding:.2rem;}
+
+/* Music FAB */
+#musicFab{position:fixed;right:1rem;bottom:1rem;z-index:40;width:48px;height:48px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.4);cursor:pointer;font-size:1.25rem;flex-direction:column;gap:0;overflow:hidden;}
+#musicFab .mf-ic{line-height:1;pointer-events:none;transition:transform .2s;}
+#musicFabInput{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0;display:none;}
+body.admin-mode #musicFabInput{display:block;}
+#musicFab.muted .mf-ic{opacity:.45;}
+
+/* WA fab move to left */
+.wa-fab{position:fixed;left:1rem;bottom:1rem;right:auto;}
+
+/* Admin mode bar */
+#admBar{display:none;position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(176,141,91,.12);border-bottom:1px solid var(--gold);padding:.35rem 1rem;font-family:var(--micro);font-size:.42rem;letter-spacing:.38em;color:var(--gold);text-align:center;}
+body.admin-mode #admBar{display:block;}
+#admBarExit{float:right;cursor:pointer;opacity:.7;}
+
+</style>
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+<div class="page">
+<canvas id="dust"></canvas>
+<div class="grain"></div>
+
+<!-- MOVING FLIGHTS -->
+<div class="sky-layer">
+  <div class="flt flt-a">
+    <div class="flt-trail"></div>
+    <div class="flt-plane">✈</div>
+  </div>
+  <div class="flt flt-b">
+    <div class="flt-trail"></div>
+    <div class="flt-plane">✈</div>
+  </div>
+  <div class="flt flt-c">
+    <div class="flt-trail"></div>
+    <div class="flt-plane">✈</div>
+  </div>
+</div>
+
+<!-- ENVELOPE -->
+<div id="envelope">
+  <div class="env-wrap" id="envWrap" onclick="openEnv()">
+    <div class="env-body">
+      <div class="env-monogram">A<span style="opacity:.5">&amp;</span>N</div>
+      <div class="env-rule"></div>
+      <div class="env-names">ASLAM &nbsp;·&nbsp; NIDHA</div>
+      <div class="env-date">Wedding Invitation · July 2026</div>
+    </div>
+    <div class="env-flap"></div>
+    <div class="env-seal">أ ن</div>
+    <div class="env-cta">TAP TO OPEN</div>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="mono">A<span style="color:var(--gold)">&amp;</span>N</div>
+  <div class="tag">JULY · MMXXVI</div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-frame"></div>
+  <div class="hero-corner-bl"></div><div class="hero-corner-br"></div>
+
+  <div class="hero-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <div class="hero-arabic-en">In the name of Allah, the Most Gracious, the Most Merciful</div>
+
+  <div class="hero-gline"></div>
+  <div class="hero-name"><span class="shine">Aslam</span></div>
+  <div class="hero-amp">✦ weds ✦</div>
+  <div class="hero-name"><span class="shine">Nidha</span></div>
+  <div class="hero-stars">✺ ✈ ✺</div>
+
+  <div class="hero-date">SUNDAY · 19 JULY 2026</div>
+
+  <div class="scroll-hint"><div class="line"></div>SCROLL</div>
+</section>
+
+<!-- PHOTO -->
+<section id="photo">
+  <div class="photo-wrap rv">
+    <div class="photo-frame"></div>
+    <div class="photo-img" id="couplePhotoWrap" style="position:relative;overflow:hidden;">
+      <div class="ph-slot" id="couplePhotoPlaceholder"><div class="ph-mark">A &amp; N</div><div class="ph-label">PORTRAIT</div></div>
+      <img id="couplePhotoImg" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" src="" alt="Couple"/>
+      <div class="img-edit-btn">
+        <div class="edit-ic">＋</div>
+        <div class="edit-lbl">ADD PHOTO</div>
+        <input type="file" accept="image/*" onchange="handleImg(this,'couple')"/>
+      </div>
+    </div>
+  </div>
+  <div class="diamond-sep rv rv-d1">◆</div>
+
+  <!-- COUNTDOWN -->
+  <div id="cdWrap" class="rv rv-d2"></div>
+</section>
+
+
+<!-- QURANIC VERSE -->
+<section id="verse">
+  <div class="eyebrow rv">FROM THE HOLY QUR'AN</div>
+  <div class="rv rv-d1" style="text-align:center;padding:1.5rem;border:1px solid var(--line);background:linear-gradient(180deg,rgba(176,141,91,.04),transparent);">
+    <div style="font-family:var(--arabic);color:var(--gold-hi);font-size:1.55rem;line-height:1.9;margin-bottom:1.2rem;">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+    <div style="width:60px;height:1px;background:var(--gold);opacity:.6;margin:0 auto 1.2rem;"></div>
+    <div style="font-family:var(--italic);font-style:italic;color:var(--ivory);opacity:.78;font-size:1rem;line-height:1.7;max-width:32ch;margin:0 auto;">“And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy.”</div>
+    <div style="font-family:var(--micro);font-size:.55rem;letter-spacing:.35em;color:var(--gold);opacity:.8;margin-top:1rem;">QUR'AN · AR-RUM 30:21</div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="eyebrow rv">✈ &nbsp;THE CELEBRATION</div>
+  <h2 class="section-title rv">A <em>Blessed</em> Flight</h2>
+
+  <div class="event featured rv rv-d1" style="padding:0;border:none;background:none;overflow:visible;">
+    <div class="bp2">
+      <div class="bp2-head">
+        <div class="bl">BOARDING PASS</div>
+        <div class="br">✈ &nbsp;WALEEMA · WEDDING LUNCH</div>
+      </div>
+      <div class="bp2-body">
+        <div class="bp2-pax">
+          <div class="k">PASSENGER</div>
+          <div class="v">Honoured Guest</div>
+        </div>
+        <div class="bp2-route">
+          <div class="bp2-apt">
+            <div class="bp2-iata">BCH</div>
+            <div class="bp2-apt-name">Bachelorhood</div>
+          </div>
+          <div class="bp2-path">
+            <div class="bp2-path-line"></div>
+            <div class="bp2-path-ic">✈</div>
+          </div>
+          <div class="bp2-apt">
+            <div class="bp2-iata">WED</div>
+            <div class="bp2-apt-name">Wedded Bliss</div>
+          </div>
+        </div>
+        <div class="bp2-info">
+          <div class="bp2-f"><div class="k">FLIGHT NO.</div><div class="v">A&amp;N · 2026</div></div>
+          <div class="bp2-f"><div class="k">DATE</div><div class="v">19 JUL 2026</div></div>
+          <div class="bp2-f"><div class="k">BOARDING TIME</div><div class="v">10:00 AM Onwards</div></div>
+          <div class="bp2-f"><div class="k">CLASS</div><div class="v">Blessed Union</div></div>
+        </div>
+      </div>
+      <div class="bp2-tear">
+        <div class="bp2-notch"></div>
+        <div class="bp2-dash"></div>
+        <div class="bp2-tear-ic">✈</div>
+        <div class="bp2-dash"></div>
+        <div class="bp2-notch"></div>
+      </div>
+      <div class="bp2-stub">
+        <div class="bp2-stub-info">
+          <div class="bp2-f"><div class="k">GATE / VENUE</div><div class="v">Mattery Convention Centre</div></div>
+          <div class="bp2-f"><div class="k">SEAT</div><div class="v">Your Presence</div></div>
+          <div class="bp2-f"><div class="k">ADDRESS</div><div class="v" style="font-size:.78rem;opacity:.7;">Ponnani – Althara Rd, Eramangalam</div></div>
+          <div class="bp2-f"><div class="k">TERMINAL</div><div class="v">Mattery Hall</div></div>
+        </div>
+        <div class="bp2-bcode"></div>
+      </div>
+      <div class="bp2-btns">
+        <a class="btn" href="https://maps.app.goo.gl/RzDgQq39f8NaCoAx9?g_st=ic" target="_blank">LOCATION</a>
+        <a class="btn" id="recepGcal" href="#" target="_blank">GOOGLE CAL</a>
+        <a class="btn" id="recepIcal" href="#" download="wedding-lunch.ics">APPLE CAL</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp-sec">
+  <div class="rsvp-card rv">
+    <div class="eyebrow" style="margin-bottom:.6rem;">KINDLY RESPOND</div>
+    <h3>Will you join us?</h3>
+    <div class="rsvp-sub">Please confirm your presence by <strong style="color:var(--gold-hi);font-style:normal;">3 July 2026</strong></div>
+    <div id="rsvpForm">
+      <input type="text" id="guestName" placeholder="Your full name" />
+      <div class="yn">
+        <button type="button" class="yn-btn" data-val="yes" onclick="pickAttend(this)">✦ ATTENDING</button>
+        <button type="button" class="yn-btn" data-val="no" onclick="pickAttend(this)">REGRETS</button>
+      </div>
+      <input type="number" id="members" placeholder="How many joining?" min="1" max="20" value="1"/>
+      <textarea id="msg" placeholder="Your duas &amp; wishes for Aslam &amp; Nidha..."></textarea>
+      <button class="rsvp-submit" onclick="submitRSVP()">SEND RSVP</button>
+    </div>
+    <div class="rsvp-ok" id="rsvpOk">
+      — Thank you —<br/>
+      Your reply has been received.<br/>
+      May Allah bless this union.
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section id="venue">
+  <div class="eyebrow rv">VENUE</div>
+  <h2 class="section-title rv">The <em>Location</em></h2>
+  <div class="venue rv rv-d1">
+    <div class="icn">◆</div>
+    <h4>Mattery Convention Centre</h4>
+    <p>Ponnani – Althara Road<br/>Eramangalam</p>
+    <a class="btn primary" href="https://maps.app.goo.gl/RzDgQq39f8NaCoAx9?g_st=ic" target="_blank">OPEN IN MAPS</a>
+  </div>
+</section>
+
+<!-- FAMILIES -->
+<section id="families">
+  <div class="eyebrow rv">WITH THE BLESSINGS OF</div>
+  <h2 class="section-title rv">Our <em>Families</em></h2>
+
+  <div class="fam rv rv-d1">
+    <div class="fam-side">GROOM</div>
+    <div class="fam-name">Mohammed Aslam</div>
+    <div style="font-family:var(--micro);font-size:.5rem;letter-spacing:.4em;color:var(--gold);opacity:.7;margin:-0.5rem 0 .9rem;">✈ &nbsp;AVIATION PROFESSIONAL</div>
+    <div class="fam-rel">Son of</div>
+    <div class="fam-parent">Kunhi Koya<br/>&amp; Arifa Koya</div>
+    <div class="fam-gp">
+      <div class="fam-gp-title">SIBLINGS</div>
+      <div class="fam-gp-name">Nishad &amp; Sirajudheen</div>
+      <div class="fam-gp-name">Fasil</div>
+    </div>
+    <div class="fam-gp">
+      <div class="fam-gp-title">GRANDPARENTS</div>
+      <div class="fam-gp-name">Imbichikoya</div>
+      <div class="fam-gp-name">C. N. Aboobacker (Late)</div>
+    </div>
+    <div class="fam-gp">
+      <div class="fam-gp-title">FAMILY HOME</div>
+      <div class="fam-gp-name">Valiyajarathingal Kallingal House<br/>Veliancode</div>
+    </div>
+  </div>
+
+  <div class="fam-sep">✦ ✦ ✦</div>
+
+  <div class="fam rv rv-d2">
+    <div class="fam-side">BRIDE</div>
+    <div class="fam-name">Nidha Mohammed</div>
+    <div class="fam-rel">Daughter of</div>
+    <div class="fam-parent">Mohammed K. P<br/>&amp; Jameela</div>
+    <div class="fam-gp">
+      <div class="fam-gp-title">SIBLINGS</div>
+      <div class="fam-gp-name">Nishad</div>
+      <div class="fam-gp-name">Najeeba</div>
+    </div>
+    <div class="fam-gp">
+      <div class="fam-gp-title">PATERNAL GRANDPARENTS</div>
+      <div class="fam-gp-name">Late Kunjappu Haji (Kolothuparambil)<br/>&amp; Late Bavu (Kummaparambil)</div>
+    </div>
+    <div class="fam-gp">
+      <div class="fam-gp-title">FAMILY HOME</div>
+      <div class="fam-gp-name">Kolothuparambil House<br/>Kummapparambil Road<br/>Kundu Kadavu, Purangu</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="eyebrow rv">RSVP &amp; ENQUIRIES</div>
+
+  <div class="contact rv rv-d1">
+    <div class="contact-left">
+      <div class="lbl">CONTACT · GROOM</div>
+      <div class="nm">Aslam</div>
+    </div>
+    <div class="contact-right">
+      <a class="c-ic" href="tel:+919048042737" aria-label="call">✆</a>
+      <a class="c-ic" href="https://wa.me/919048042737" target="_blank" aria-label="whatsapp">◉</a>
+    </div>
+  </div>
+  <div class="contact rv rv-d2">
+    <div class="contact-left">
+      <div class="lbl">CONTACT · BRIDE</div>
+      <div class="nm">Nidha</div>
+    </div>
+    <div class="contact-right">
+      <a class="c-ic" href="tel:+919048042737" aria-label="call">✆</a>
+      <a class="c-ic" href="https://wa.me/919048042737" target="_blank" aria-label="whatsapp">◉</a>
+    </div>
+  </div>
+</section>
+
+<!-- WISHES -->
+<section id="wishes">
+  <div class="eyebrow rv">DUAS &amp; WISHES</div>
+  <h2 class="section-title rv">Send your heartfelt<br/><em>duas &amp; wishes</em></h2>
+
+  <div class="rsvp-card rv rv-d1" style="border-color:var(--line);">
+    <input type="text" id="wisherName" placeholder="Your Name"/>
+    <textarea id="wisherMsg" placeholder="Write your duas and wishes for Aslam &amp; Nidha..."></textarea>
+    <button class="rsvp-submit" onclick="submitWish()">SEND WISHES</button>
+  </div>
+
+  <div class="wish-count rv rv-d2" id="wishCount">0 Duas &amp; Wishes</div>
+  <div id="wgrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-rule"></div>
+  <div class="foot-dua">بَارَكَ اللَّهُ لَكُمَا</div>
+  <div style="font-family:var(--micro);font-size:.55rem;letter-spacing:.35em;color:var(--gold);text-align:center;margin-bottom:.5rem;">SISTERS</div>
+  <div class="foot-families">Sherin Shahabana &amp; Muhsina<br/><span style="display:inline-block;width:40px;height:1px;background:var(--gold);opacity:.5;margin:.6rem 0;"></span><br/>Nebu Mon</div>
+  <div class="foot-rule"></div>
+  <div class="foot-names">Aslam &amp; Nidha</div>
+  <div class="foot-date">19 · JULY · 2026 · WEDDING LUNCH<br/>MATTERY CONVENTION CENTRE · ERAMANGALAM</div>
+  <div class="foot-credit">Crafted with ♡ by <a href="https://digiwed.online" target="_blank">Digi Wed</a></div>
+  <div id="adminBtn" title="Admin">✦ ADMIN ✦</div>
+</footer>
+
+<audio id="bgm" loop></audio>
+
+<!-- ADMIN MODE BAR -->
+<div id="admBar">✈ &nbsp;ADMIN MODE ACTIVE &nbsp;· &nbsp;TAP PHOTOS TO CHANGE &nbsp;· &nbsp;MUSIC FAB TO SET BGM <span id="admBarExit" onclick="exitAdminMode()">EXIT ✕</span></div>
+
+<!-- ADMIN PIN TOAST -->
+<div id="admPinToast">
+  <div class="adm-pin-lbl">ADMIN PIN</div>
+  <input type="password" id="admPinInput" maxlength="8" placeholder="· · · ·" autocomplete="off" oninput="admPinCheck()"/>
+  <div class="adm-err" id="admPinErr">INCORRECT PIN</div>
+  <div class="adm-cancel" onclick="closePinToast()">CANCEL</div>
+</div>
+
+<!-- MUSIC FAB -->
+<div id="musicFab" onclick="musicFabTap()">
+  <span class="mf-ic">♪</span>
+  <input type="file" id="musicFabInput" accept="audio/*" onchange="handleBgm(this)"/>
+</div>
+
+<a class="wa-fab" href="https://wa.me/919048042737" target="_blank" aria-label="whatsapp">◉</a>
+</div>
+
+<!-- TWEAKS -->
+<div id="tweaks">
+  <h5>TWEAKS</h5>
+  <div class="row"><span>Gold dust</span><button id="tDust" onclick="tweak('dust')">ON</button></div>
+  <div class="row"><span>Shine sweep</span><button id="tShine" onclick="tweak('shine')">ON</button></div>
+  <div class="row"><span>Accent</span>
+    <div class="theme-row">
+      <div class="sw" data-accent="#c9a24c" style="background:#c9a24c" onclick="tweak('accent','#c9a24c',this)"></div>
+      <div class="sw" data-accent="#b08d5b" style="background:#b08d5b" onclick="tweak('accent','#b08d5b',this)"></div>
+      <div class="sw" data-accent="#d4b57a" style="background:#d4b57a" onclick="tweak('accent','#d4b57a',this)"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "dust": true,
+  "shine": true,
+  "accent": "#b08d5b"
+}/*EDITMODE-END*/;
+let TW = {...TWEAK_DEFAULTS};
+
+// envelope
+function openEnv(){
+  document.getElementById('envWrap').classList.add('open');
+  setTimeout(()=>{
+    document.getElementById('envelope').classList.add('gone');
+    document.body.style.overflowY='auto';
+    // autoplay BGM
+    const audio = document.getElementById('bgm');
+    if(audio.src && audio.src !== window.location.href) audio.play().catch(()=>{});
+  },1400);
+}
+setTimeout(()=>{
+  if(!document.getElementById('envWrap').classList.contains('open')) openEnv();
+},6000);
+document.body.style.overflowY='hidden';
+
+// ── COUNTDOWN ──
+(function(){
+  const TARGET = new Date('2026-07-19T00:00:00+05:30');
+  const wrap = document.getElementById('cdWrap');
+  function render(){
+    const now = new Date();
+    const diff = TARGET - now;
+    if(diff <= 0){
+      wrap.innerHTML = '<div class="cd-done">Today is the day — JazakAllahu Khairan ✦</div>';
+      return;
+    }
+    const d = Math.floor(diff / 864e5);
+    const h = Math.floor((diff % 864e5) / 36e5);
+    const m = Math.floor((diff % 36e5) / 6e4);
+    const s = Math.floor((diff % 6e4) / 1e3);
+    wrap.innerHTML = `
+      <div class="cd-tagline">COUNTING DOWN TO THE BIG DAY</div>
+      <div class="hero-countdown">
+        <div class="cd-unit"><div class="cd-num">${String(d).padStart(2,'0')}</div><div class="cd-lbl">DAYS</div></div>
+        <div class="cd-sep">·</div>
+        <div class="cd-unit"><div class="cd-num">${String(h).padStart(2,'0')}</div><div class="cd-lbl">HRS</div></div>
+        <div class="cd-sep">·</div>
+        <div class="cd-unit"><div class="cd-num">${String(m).padStart(2,'0')}</div><div class="cd-lbl">MIN</div></div>
+        <div class="cd-sep">·</div>
+        <div class="cd-unit"><div class="cd-num">${String(s).padStart(2,'0')}</div><div class="cd-lbl">SEC</div></div>
+      </div>`;
+  }
+  render();
+  setInterval(render, 1000);
+})();
+
+// gold dust
+(function(){
+  const c=document.getElementById('dust'),ctx=c.getContext('2d');
+  let W,H,parts=[];
+  function resize(){W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';}
+  resize();addEventListener('resize',resize);
+  for(let i=0;i<70;i++){
+    parts.push({x:Math.random()*W,y:Math.random()*H,r:(Math.random()*1.6+.3)*devicePixelRatio,vx:(Math.random()-.5)*.25*devicePixelRatio,vy:(-Math.random()*.4-.1)*devicePixelRatio,a:Math.random()*.8+.2,tw:Math.random()*Math.PI*2});
+  }
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    if(!TW.dust){requestAnimationFrame(tick);return;}
+    const gold=getComputedStyle(document.documentElement).getPropertyValue('--gold').trim()||'#b08d5b';
+    // convert hex to rgb
+    const m=gold.match(/#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i);
+    const r=m?parseInt(m[1],16):176,g=m?parseInt(m[2],16):141,b=m?parseInt(m[3],16):91;
+    for(const p of parts){
+      p.x+=p.vx;p.y+=p.vy;p.tw+=.04;
+      if(p.y<-10)p.y=H+10;
+      if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;
+      const fl=.5+.5*Math.sin(p.tw);
+      ctx.fillStyle=`rgba(${r},${g},${b},${p.a*fl})`;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=`rgba(${r},${g},${b},${p.a*fl*.2})`;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*3,0,Math.PI*2);ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+// reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// calendar
+function gcal(title,s,e,loc){
+  const fmt=(d)=>d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  return`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${fmt(s)}/${fmt(e)}&location=${encodeURIComponent(loc)}`;
+}
+function ics(title,s,e,loc){
+  const fmt=(d)=>d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const v=`BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:${fmt(s)}\nDTEND:${fmt(e)}\nSUMMARY:${title}\nLOCATION:${loc}\nEND:VEVENT\nEND:VCALENDAR`;
+  return'data:text/calendar;charset=utf8,'+encodeURIComponent(v);
+}
+const nikS=new Date('2026-07-19T10:00:00+05:30'),nikE=new Date('2026-07-19T14:00:00+05:30');
+const recS=new Date('2026-07-19T10:00:00+05:30'),recE=new Date('2026-07-19T14:00:00+05:30');
+document.getElementById('recepGcal').href=gcal('Aslam & Nidha — Wedding Lunch',recS,recE,"Mattery Convention Centre, Ponnani-Althara Road, Eramangalam");
+document.getElementById('recepIcal').href=ics('Aslam & Nidha — Wedding Lunch',recS,recE,"Mattery Convention Centre, Ponnani-Althara Road, Eramangalam");
+
+// ── FIREBASE INIT ──
+const FIREBASE_CONFIG = {
+  apiKey:            "AIzaSyB41fvxvl1KeHOro6WKJ72o22izuCpJ-b4",
+  authDomain:        "yaseen-jumana-wedding.firebaseapp.com",
+  databaseURL:       "https://yaseen-jumana-wedding-default-rtdb.firebaseio.com",
+  projectId:         "yaseen-jumana-wedding",
+  storageBucket:     "yaseen-jumana-wedding.firebasestorage.app",
+  messagingSenderId: "355557621111",
+  appId:             "1:355557621111:web:d0b78c34bfe5a53b69f572"
+};
+const RSVP_PATH   = "aslam-nidha/rsvp";
+const WISHES_PATH = "aslam-nidha/wishes";
+const PAGE_SIZE   = 6;
+
+let db = null;
+try {
+  firebase.initializeApp(FIREBASE_CONFIG);
+  db = firebase.database();
+} catch(e){ console.warn('Firebase init failed', e); }
+
+// ── RSVP ──
+let attending = null;
+function pickAttend(btn){
+  document.querySelectorAll('.yn-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  attending = btn.dataset.val;
+}
+function submitRSVP(){
+  const name    = document.getElementById('guestName').value.trim();
+  const members = parseInt(document.getElementById('members').value)||1;
+  const msg     = document.getElementById('msg').value.trim();
+  if(!name){ alert('Please enter your name'); return; }
+  if(!attending){ alert('Please let us know if you can attend'); return; }
+  const data = { name, attending, members: attending==='yes'?members:0, msg, ts: Date.now(), event:'reception' };
+  if(db){
+    db.ref(RSVP_PATH).push(data)
+      .then(()=>showRSVPOk(name, attending))
+      .catch(()=>showRSVPOk(name, attending));
+  } else { showRSVPOk(name, attending); }
+}
+function showRSVPOk(name, att){
+  document.getElementById('rsvpForm').style.display='none';
+  const ok = document.getElementById('rsvpOk');
+  ok.style.display='block';
+  const msg = att==='yes'
+    ? `JazakAllahu Khayran, ${name}! Your attendance is confirmed. We look forward to celebrating with you. 🎊`
+    : `JazakAllahu Khayran, ${name}. We understand and appreciate you letting us know. You will be in our duas. 🤲`;
+  ok.innerHTML = msg;
+}
+
+// ── WISHES ──
+let lastWishKey = null;
+let wishTotal   = 0;
+let recentTs    = 0;
+
+function submitWish(){
+  const n = document.getElementById('wisherName').value.trim();
+  const m = document.getElementById('wisherMsg').value.trim();
+  if(!n||!m){ alert('Please fill in both fields'); return; }
+  const ts = Date.now();
+  if(ts - recentTs < 3000){ alert('Please wait a moment before sending another wish.'); return; }
+  recentTs = ts;
+  const data = { name:n, msg:m, time:new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}), ts };
+  if(db){
+    db.ref(WISHES_PATH).push(data).then(()=>{
+      document.getElementById('wisherName').value='';
+      document.getElementById('wisherMsg').value='';
+      loadWishes(true);
+    }).catch(()=>alert('Could not send wish. Please try again.'));
+  } else {
+    prependWish({...data, key:'local'+ts});
+    document.getElementById('wisherName').value='';
+    document.getElementById('wisherMsg').value='';
+  }
+}
+
+function loadWishes(reset=false){
+  if(!db) return;
+  if(reset){ document.getElementById('wgrid').innerHTML=''; lastWishKey=null; }
+  let query = db.ref(WISHES_PATH).orderByKey().limitToLast(PAGE_SIZE);
+  if(lastWishKey) query = db.ref(WISHES_PATH).orderByKey().endBefore(lastWishKey).limitToLast(PAGE_SIZE);
+  db.ref(WISHES_PATH).once('value', snap=>{
+    wishTotal = snap.numChildren()||0;
+    document.getElementById('wishCount').textContent = wishTotal + (wishTotal===1?' Dua & Wish':' Duas & Wishes');
+  });
+  query.once('value', snap=>{
+    const items=[];
+    snap.forEach(c=>items.unshift({key:c.key,...c.val()}));
+    items.forEach(w=>appendWish(w));
+    if(items.length) lastWishKey = items[items.length-1].key;
+  });
+}
+
+function appendWish(w){
+  const el = buildWishEl(w);
+  document.getElementById('wgrid').appendChild(el);
+}
+function prependWish(w){
+  const el = buildWishEl(w);
+  document.getElementById('wgrid').insertBefore(el, document.getElementById('wgrid').firstChild);
+  wishTotal++;
+  document.getElementById('wishCount').textContent = wishTotal + (wishTotal===1?' Dua & Wish':' Duas & Wishes');
+}
+function buildWishEl(w){
+  const div = document.createElement('div');
+  div.className = 'wish';
+  div.innerHTML = `<div class="wn">${esc(w.name)}</div><div class="wm">"${esc(w.msg)}"</div><div class="wd">${esc(w.time||'')}</div>`;
+  return div;
+}
+
+function esc(s){ return String(s||'').replace(/[<>"'&]/g,c=>({'<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','&':'&amp;'}[c])); }
+
+// Load wishes on start
+window.addEventListener('load', ()=>{ try{ loadWishes(true); }catch(e){} });
+
+// tweaks
+function applyTweaks(){
+  document.documentElement.style.setProperty('--gold',TW.accent);
+  document.querySelectorAll('.shine').forEach(el=>el.style.animationPlayState=TW.shine?'running':'paused');
+  document.getElementById('tDust').textContent=TW.dust?'ON':'OFF';
+  document.getElementById('tDust').classList.toggle('on',TW.dust);
+  document.getElementById('tShine').textContent=TW.shine?'ON':'OFF';
+  document.getElementById('tShine').classList.toggle('on',TW.shine);
+  document.querySelectorAll('.sw').forEach(s=>s.classList.toggle('active',s.dataset.accent===TW.accent));
+}
+function tweak(k,v){
+  if(k==='dust')TW.dust=!TW.dust;
+  else if(k==='shine')TW.shine=!TW.shine;
+  else if(k==='accent')TW.accent=v;
+  applyTweaks();
+  try{window.parent.postMessage({type:'__edit_mode_set_keys',edits:TW},'*');}catch(e){}
+}
+applyTweaks();
+
+// ── TOUCH GLITTER BURST ──
+(function(){
+  const c = document.getElementById('dust');
+  const ctx = c.getContext('2d');
+  let touchParticles = [];
+
+  function spawnBurst(cx, cy, count){
+    const dpr = devicePixelRatio || 1;
+    const px = cx * dpr, py = cy * dpr;
+    for(let i = 0; i < count; i++){
+      const angle  = Math.random() * Math.PI * 2;
+      const speed  = (Math.random() * 6 + 2) * dpr;
+      const shapes = ['circle','star','diamond'];
+      touchParticles.push({
+        x: px, y: py,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - Math.random() * 3 * dpr,
+        r: (Math.random() * 3 + 1) * dpr,
+        a: 1,
+        decay: Math.random() * 0.025 + 0.018,
+        tw: Math.random() * Math.PI * 2,
+        shape: shapes[Math.floor(Math.random() * shapes.length)],
+        hue: Math.random() < 0.6 ? 'gold' : (Math.random() < 0.5 ? 'white' : 'rose'),
+      });
+    }
+  }
+
+  function drawStar(ctx, x, y, r){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.beginPath();
+    for(let i = 0; i < 5; i++){
+      const o = (i * Math.PI * 4 / 5) - Math.PI / 2;
+      const io = o + Math.PI / 5;
+      i === 0 ? ctx.moveTo(Math.cos(o)*r, Math.sin(o)*r) : ctx.lineTo(Math.cos(o)*r, Math.sin(o)*r);
+      ctx.lineTo(Math.cos(io)*r*.4, Math.sin(io)*r*.4);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawDiamond(ctx, x, y, r){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.beginPath();
+    ctx.moveTo(0, -r);
+    ctx.lineTo(r * 0.6, 0);
+    ctx.lineTo(0, r);
+    ctx.lineTo(-r * 0.6, 0);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // Inject touch drawing into existing tick loop by extending parts rendering
+  const origTick = window.__dustTick;
+
+  function touchTick(){
+    if(!touchParticles.length) return;
+    const gold = [176,141,91];
+    const white = [255,245,220];
+    const rose  = [255,180,150];
+    for(let i = touchParticles.length - 1; i >= 0; i--){
+      const p = touchParticles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.12 * (devicePixelRatio||1); // gravity
+      p.vx *= 0.97;
+      p.a -= p.decay;
+      p.tw += 0.15;
+      if(p.a <= 0){ touchParticles.splice(i,1); continue; }
+      const col = p.hue==='gold' ? gold : (p.hue==='white' ? white : rose);
+      const fl = 0.6 + 0.4 * Math.sin(p.tw);
+      // glow
+      ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${p.a * fl * 0.25})`;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI*2); ctx.fill();
+      // core
+      ctx.fillStyle = `rgba(${col[0]},${col[1]},${col[2]},${p.a * fl})`;
+      if(p.shape === 'star')        drawStar(ctx, p.x, p.y, p.r);
+      else if(p.shape === 'diamond') drawDiamond(ctx, p.x, p.y, p.r);
+      else { ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill(); }
+    }
+  }
+
+  // Hook into rAF by patching requestAnimationFrame draw
+  const _raf = window.requestAnimationFrame.bind(window);
+  window.__touchGlitterTick = touchTick;
+
+  // Patch: after each existing dust frame also run touch particles
+  const origTickFn = document.currentScript;
+  // Instead just listen on a canvas overlay
+  document.addEventListener('touchstart', function(e){
+    for(const t of e.touches) spawnBurst(t.clientX, t.clientY, 28);
+  }, {passive:true});
+  document.addEventListener('touchmove', function(e){
+    for(const t of e.touches){
+      if(Math.random() < 0.4) spawnBurst(t.clientX, t.clientY, 8);
+    }
+  }, {passive:true});
+  document.addEventListener('click', function(e){
+    spawnBurst(e.clientX, e.clientY, 22);
+  });
+
+  // Run touch particle loop independently
+  function touchLoop(){
+    touchTick();
+    requestAnimationFrame(touchLoop);
+  }
+  touchLoop();
+})();
+
+
+
+// ── CLOUDINARY + FIREBASE MEDIA ──
+const CLOUD_NAME    = 'dormnrhdf';
+const UPLOAD_PRESET = 'ml_default';
+const COUPLE_FOLDER = 'digiwed-invitations/aslam-nidha';
+const MEDIA_PATH    = 'aslam-nidha/media';
+
+// Upload file to Cloudinary, return secure_url
+function uploadToCloudinary(file, resourceType='image'){
+  return new Promise((res, rej)=>{
+    const fd = new FormData();
+    fd.append('file', file);
+    fd.append('upload_preset', UPLOAD_PRESET);
+    fd.append('folder', COUPLE_FOLDER);
+    fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${resourceType}/upload`, {
+      method:'POST', body: fd
+    })
+    .then(r=>r.json())
+    .then(data=>{ if(data.secure_url) res(data.secure_url); else rej(data); })
+    .catch(rej);
+  });
+}
+
+// Save URL to Firebase media path
+function saveMediaURL(slot, url){
+  if(db) db.ref(MEDIA_PATH + '/' + slot).set(url);
+}
+
+// On page load: read all media URLs from Firebase and apply
+function loadMediaFromFirebase(){
+  if(!db) return;
+  db.ref(MEDIA_PATH).on('value', snap=>{
+    const data = snap.val();
+    if(!data) return;
+    if(data.couple_photo) applyImg('couple', data.couple_photo);
+    if(data.hero_bg)      applyImg('hero',   data.hero_bg);
+    if(data.bgm)          applyBgm(data.bgm);
+  });
+}
+
+// ── ADMIN PANEL (inline mode) ──
+const ADMIN_PIN = '2026AN';
+let bgmMuted = false;
+
+(function(){
+  const btn = document.getElementById('adminBtn');
+  let t;
+  const start = ()=>{ btn.classList.add('holding'); t = setTimeout(showPinToast, 600); };
+  const end   = ()=>{ btn.classList.remove('holding'); clearTimeout(t); };
+  btn.addEventListener('touchstart', start, {passive:true});
+  btn.addEventListener('touchend',   end,   {passive:true});
+  btn.addEventListener('touchcancel',end,   {passive:true});
+  btn.addEventListener('mousedown',  start);
+  btn.addEventListener('mouseup',    end);
+  btn.addEventListener('mouseleave', end);
+})();
+
+function showPinToast(){
+  const t = document.getElementById('admPinToast');
+  t.classList.add('on');
+  document.getElementById('admPinInput').value = '';
+  document.getElementById('admPinErr').classList.remove('show');
+  setTimeout(()=>document.getElementById('admPinInput').focus(), 200);
+}
+function closePinToast(){
+  document.getElementById('admPinToast').classList.remove('on');
+}
+function admPinCheck(){
+  const v = document.getElementById('admPinInput').value;
+  if(v.length < ADMIN_PIN.length) return;
+  if(v === ADMIN_PIN){
+    closePinToast();
+    document.body.classList.add('admin-mode');
+  } else {
+    document.getElementById('admPinErr').classList.add('show');
+    document.getElementById('admPinInput').value = '';
+    setTimeout(()=>document.getElementById('admPinErr').classList.remove('show'), 1800);
+  }
+}
+function exitAdminMode(){
+  document.body.classList.remove('admin-mode');
+}
+
+// Music FAB — mute/unmute for guests; upload for admin
+function musicFabTap(){
+  if(document.body.classList.contains('admin-mode')) return; // file input handles BGM upload
+  const audio = document.getElementById('bgm');
+  bgmMuted = !bgmMuted;
+  audio.muted = bgmMuted;
+  document.getElementById('musicFab').classList.toggle('muted', bgmMuted);
+  document.querySelector('#musicFab .mf-ic').textContent = bgmMuted ? '♪̶' : '♪';
+}
+
+// Image upload handler — Cloudinary → Firebase
+function handleImg(input, slot){
+  const file = input.files[0]; if(!file) return;
+  // Show local preview immediately
+  const localUrl = URL.createObjectURL(file);
+  applyImg(slot, localUrl);
+  showUploadStatus('Uploading photo…');
+  uploadToCloudinary(file, 'image')
+    .then(url=>{
+      const key = slot === 'couple' ? 'couple_photo' : 'hero_bg';
+      saveMediaURL(key, url);
+      applyImg(slot, url); // apply permanent URL
+      showUploadStatus('Photo saved ✓', 2000);
+    })
+    .catch(err=>{ console.error(err); showUploadStatus('Upload failed ✗', 3000); });
+}
+
+// BGM upload handler — Cloudinary → Firebase
+function handleBgm(input){
+  const file = input.files[0]; if(!file) return;
+  const localUrl = URL.createObjectURL(file);
+  applyBgm(localUrl);
+  showUploadStatus('Uploading BGM…');
+  uploadToCloudinary(file, 'video') // Cloudinary uses 'video' resource type for audio
+    .then(url=>{
+      saveMediaURL('bgm', url);
+      applyBgm(url);
+      showUploadStatus('BGM saved ✓', 2000);
+    })
+    .catch(err=>{ console.error(err); showUploadStatus('Upload failed ✗', 3000); });
+}
+
+// Apply image to DOM
+function applyImg(slot, url){
+  if(slot === 'couple'){
+    const ph = document.getElementById('couplePhotoPlaceholder');
+    if(ph) ph.style.display = 'none';
+    const img = document.getElementById('couplePhotoImg');
+    if(img){ img.src = url; img.style.display = 'block'; }
+    const lbl = document.querySelector('#couplePhotoWrap .edit-lbl');
+    if(lbl) lbl.textContent = 'CHANGE';
+  }
+  if(slot === 'hero'){
+    const hero = document.getElementById('hero');
+    if(hero){ hero.style.backgroundImage=`url(${url})`; hero.style.backgroundSize='cover'; hero.style.backgroundPosition='center'; }
+  }
+}
+
+// Apply BGM to audio element
+function applyBgm(url){
+  const audio = document.getElementById('bgm');
+  audio.src = url;
+  const fab = document.getElementById('musicFab');
+  if(fab){ fab.style.transform='scale(1.15)'; setTimeout(()=>fab.style.transform='scale(1)',300); }
+}
+
+// Upload status toast
+let _statusTimer;
+function showUploadStatus(msg, hideAfter){
+  let el = document.getElementById('uploadStatus');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'uploadStatus';
+    el.style.cssText='position:fixed;bottom:5.5rem;left:50%;transform:translateX(-50%);background:var(--ink-2);border:1px solid var(--gold);padding:.6rem 1.2rem;font-family:"Courier New",monospace;font-size:.45rem;letter-spacing:.3em;color:var(--gold);z-index:9999;white-space:nowrap;';
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.style.display = 'block';
+  clearTimeout(_statusTimer);
+  if(hideAfter) _statusTimer = setTimeout(()=>el.style.display='none', hideAfter);
+}
+
+// Load all media on page start from Firebase
+loadMediaFromFirebase();
+
+window.addEventListener('message',(e)=>{
+  const t=e.data&&e.data.type;
+  if(t==='__activate_edit_mode')document.getElementById('tweaks').classList.add('on');
+  else if(t==='__deactivate_edit_mode')document.getElementById('tweaks').classList.remove('on');
+});
+try{window.parent.postMessage({type:'__edit_mode_available'},'*');}catch(e){}
+</script>
+
+</body>
+</html>
